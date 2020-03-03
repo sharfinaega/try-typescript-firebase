@@ -3,6 +3,7 @@ import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import * as cors from "cors";
 // import { user } from "firebase-functions/lib/providers/auth";
 
 //initialize firebase
@@ -11,6 +12,7 @@ admin.initializeApp(functions.config().firebase);
 //initialize express server
 const app = express();
 const main = express();
+app.use(cors());
 
 //add the path to receive req and set json as body parser to process the body
 main.use("/api/v1", app);
